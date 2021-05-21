@@ -62,3 +62,108 @@ a {
 }
 
 .project img {
+  transition: 0.4s cubic-bezier(0, 0.3, 0.35, 1);
+}
+
+.project:hover img {
+  transform: scale(1.08);
+}
+
+.project h2 {
+  background-color: black;
+  color: white;
+  display: inline-block;
+  padding: 16px;
+  font-size: 2rem;
+  margin: 10rem 0 0 0;
+}
+
+.project img {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  object-fit: cover;
+}
+
+/* We add this class to projects when they are scrolled into view */
+.visible {
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 0.7s;
+  animation-iteration-count: once;
+}
+
+/* Some utility classes we can use to fade-in elements at different times */
+.fade-early {
+  animation: 0.5s fadeIn;
+}
+
+.fade-middle {
+  animation: 1s fadeIn;
+}
+
+.fade-late {
+  animation: 2s fadeIn;
+}
+
+@keyframes fadeIn {
+  0%,
+  20% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* –– End Front-page –– */
+
+/* /// Project Page /// */
+.project-page {
+  overflow: auto;
+}
+
+.back-link {
+  display: inline-block;
+  margin: 0 0 1rem 0;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+@keyframes point-left {
+  0%,
+  100% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+}
+
+.back-link::before {
+  content: "👈";
+  display: inline-block;
+  margin-right: 0.3em;
+}
+
+.back-link:hover::before {
+  animation: 0.5s ease-in-out 0s infinite alternate point-left;
+}
+
+.project-title {
+  margin-top: 0;
+}
+
+.project-image {
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+}
+/* –– End Project Page –– */
